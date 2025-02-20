@@ -56,17 +56,21 @@
             border: 2px solid #ddd;
             z-index: 1;
         }
+
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 34px;
             font-weight: 700;
             color: #222;
+            margin: 20px 0; /* Ensure margin for spacing */
         }
+
         p {
             font-size: 18px;
             font-weight: 300;
             color: #555;
         }
+
         .ebook-image {
             max-width: 100%;
             height: auto;
@@ -74,6 +78,7 @@
             margin-bottom: 20px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
+
         .timer, .stock {
             font-size: 22px;
             font-weight: bold;
@@ -97,7 +102,16 @@
         /* Media query for responsive title */
         @media (max-width: 600px) {
             h1 {
-                font-size: 24px; /* Adjust the size as needed */
+                font-size: 24px; /* Adjust the size for mobile */
+                margin: 10px 0; /* Adjust margin for mobile */
+            }
+
+            .timer, .stock {
+                font-size: 18px; /* Adjust font size for mobile */
+            }
+
+            p {
+                font-size: 16px; /* Adjust paragraph size for mobile */
             }
         }
     </style>
@@ -219,8 +233,24 @@
                 </div>
             </div>
         </div>
-        <div class="timer">Limited Time Offer: Only 100 copies left!</div>
+        <div class="timer">Limited Time Offer: Only <span id="stock-left">100</span> copies left!</div>
         <div class="stock">Hurry up before they're gone!</div>
     </div>
+
+    <script>
+        // Timer for stock left
+        let stockCount = 100;
+        const stockLeftElement = document.getElementById('stock-left');
+
+        const updateStock = () => {
+            if (stockCount > 0) {
+                stockCount--;
+                stockLeftElement.textContent = stockCount;
+            }
+        };
+
+        // Update stock every 5 seconds
+        setInterval(updateStock, 5000);
+    </script>
 </body>
 </html>
