@@ -78,33 +78,24 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
-    /* Styled timer elements */
-    .timer,
-    .countdown-timer,
-    .stock {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 15px auto;
-      padding: 12px 20px;
+    /* Premium Timer Styles */
+    .premium-timer {
+      background: #ffffff;
+      border: 2px solid #e0e0e0;
       border-radius: 10px;
+      padding: 15px 20px;
       display: inline-block;
-      border: 1px solid #ddd;
-      background: #f8f9fa;
-      color: #e74c3c;
-      text-align: center;
-      max-width: 90%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
     }
-
-    .timer i,
-    .countdown-timer i,
-    .stock i {
-      margin-right: 8px;
+    .premium-timer-label {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 5px;
     }
-
-    /* Additional style for the countdown timer */
-    .countdown-timer {
-      background: #fff4e6;
-      border-color: #ffc107;
+    .premium-timer-display {
+      font-size: 32px;
+      font-weight: bold;
       color: #d35400;
     }
 
@@ -114,17 +105,14 @@
         font-size: 24px;
         margin: 10px 0;
       }
-      .timer,
-      .countdown-timer,
-      .stock {
-        font-size: 18px;
-        padding: 10px 15px;
-      }
       p {
         font-size: 16px;
       }
       .ebook-image {
         max-width: 60%;
+      }
+      .premium-timer-display {
+        font-size: 28px;
       }
     }
 
@@ -205,7 +193,7 @@
         <div id="success-message" class="sib-form-message-panel" style="font-size:16px; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66; max-width:540px;">
           <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
             <span class="sib-form-message-panel__inner-text">
-              🎉 Congratulations! You’re Almost There! 🎉 "Please check your email inbox (and spam folder) for a confirmation link. Click the link to get your free Ultimate Weight Loss eBook!" 📩 If you don’t receive the email in a few minutes, try again or contact us.
+              🎉 Congratulations! You’re Almost There! 🎉 Please check your email (and spam folder) for the confirmation link.
             </span>
           </div>
         </div>
@@ -215,14 +203,16 @@
               <div class="sib-input sib-form-block">
                 <div class="form__entry entry_block">
                   <div class="form__label-row">
-                    <label class="entry__label" style="font-weight: 700; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to get free gift</label>
+                    <label class="entry__label" style="font-weight: 700; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">
+                      Enter your email address to get your free gift
+                    </label>
                     <div class="entry__field">
                       <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
                     </div>
                   </div>
                   <label class="entry__error entry__error--primary" style="font-size:16px; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
                   <label class="entry__specification" style="font-size:12px; font-family:Helvetica, sans-serif; color:#8390A4;">
-                    Provide your email address to subscribe. For e.g abc@xyz.com
+                    Provide your email address to subscribe. (e.g. abc@xyz.com)
                   </label>
                 </div>
               </div>
@@ -236,7 +226,7 @@
                         <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" />
                         <span class="checkbox checkbox_tick_positive"></span>
                         <span style="font-size:14px; font-family:Helvetica, sans-serif; color:#3C4858;">
-                          <p>I agree to receive your newsletters and accept the data privacy statement.</p>
+                          I agree to receive your newsletters and accept the data privacy statement.
                         </span>
                       </label>
                     </div>
@@ -256,45 +246,34 @@
         </div>
       </div>
     </div>
-    <!-- Optimized Timer and Stock Elements -->
-    <div class="countdown-timer">
-      <i class="fas fa-clock"></i>
-      <span id="countdown">15:00</span> left
-    </div>
-    <div class="timer">
-      <i class="fas fa-box-open"></i>
-      Limited Time Offer: Only <span id="stock-left">100</span> copies left!
-    </div>
-    <div class="stock">
-      <i class="fas fa-exclamation-triangle"></i>
-      Hurry up before they're gone!
+
+    <!-- Premium Real Countdown Timer -->
+    <div class="premium-timer">
+      <div class="premium-timer-label">Offer expires in</div>
+      <div class="premium-timer-display">
+        <span id="premium-countdown">15:00</span>
+      </div>
     </div>
   </div>
 
   <script>
-    // Stock decrement timer (for visual effect)
-    let stockCount = 100;
-    const stockLeftElement = document.getElementById('stock-left');
-    const updateStock = () => {
-      if (stockCount > 0) {
-        stockCount--;
-        stockLeftElement.textContent = stockCount;
-      }
-    };
-    setInterval(updateStock, 5000);
-
     // 15-minute countdown timer (900 seconds)
-    let timeLeft = 15 * 60; 
-    const countdownElement = document.getElementById('countdown');
-    const updateCountdown = () => {
-      if (timeLeft > 0) {
-        timeLeft--;
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        countdownElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    let premiumTimeLeft = 15 * 60; 
+    const premiumCountdownElement = document.getElementById('premium-countdown');
+
+    const updatePremiumCountdown = () => {
+      if (premiumTimeLeft > 0) {
+        premiumTimeLeft--;
+        const minutes = Math.floor(premiumTimeLeft / 60);
+        const seconds = premiumTimeLeft % 60;
+        premiumCountdownElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      } else {
+        premiumCountdownElement.textContent = "00:00";
+        clearInterval(premiumInterval);
       }
     };
-    setInterval(updateCountdown, 1000);
+
+    const premiumInterval = setInterval(updatePremiumCountdown, 1000);
   </script>
 </body>
 </html>
