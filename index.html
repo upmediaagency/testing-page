@@ -58,7 +58,6 @@
       margin: 20px auto;
       overflow: hidden;
     }
-    /* Gradient overlay for extra flair */
     .container::before {
       content: "";
       position: absolute;
@@ -108,7 +107,7 @@
       display: none;
     }
 
-    /* Creative Tech Modern Premium Countdown Timer */
+    /* Premium Countdown Timer */
     .premium-timer {
       background: #1a1a1a;
       border-radius: 12px;
@@ -145,23 +144,14 @@
       text-shadow: 0 0 10px rgba(0, 213, 255, 0.8);
     }
 
-    /* Mobile adjustments */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 28px;
-      }
-      p {
-        font-size: 16px;
-      }
-      .ebook-image {
-        max-width: 80%;
-      }
-      .premium-timer-display {
-        font-size: 36px;
-      }
+      h1 { font-size: 28px; }
+      p { font-size: 16px; }
+      .ebook-image { max-width: 80%; }
+      .premium-timer-display { font-size: 36px; }
     }
   </style>
-  <!-- Brevo Form Styles -->
+  <!-- Brevo Form Styles (do not modify these if Brevo provided them) -->
   <style>
     @font-face {
       font-display: block;
@@ -210,11 +200,10 @@
 
     <div class="sib-form" style="background-color: #EFF2F7;">
       <div id="sib-form-container" class="sib-form-container">
+        <!-- Error and success messages (hidden by default) -->
         <div id="error-message" class="sib-form-message-panel" style="font-size:16px; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949; max-width:540px;">
           <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-            <span class="sib-form-message-panel__inner-text">
-              Something went wrong. Please try again.
-            </span>
+            <span class="sib-form-message-panel__inner-text">Something went wrong. Please try again.</span>
           </div>
         </div>
         <div id="success-message" class="sib-form-message-panel" style="font-size:16px; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66; max-width:540px;">
@@ -224,9 +213,11 @@
             </span>
           </div>
         </div>
-        <!-- Note: The form now has target="hidden_iframe" -->
+        <!-- Form: Note the target="hidden_iframe" attribute -->
         <div id="sib-container" class="sib-container--large sib-container--vertical" style="background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr;">
-          <form id="sib-form" target="hidden_iframe" method="POST" action="https://49df9fbb.sibforms.com/serve/MUIFAH6Y3rpHIggwiMDuMqGcGEHlefWy3BBgCTnHzKMUaXjBfKwHe4IUyxv2WrqAg8QSE56ER5iQuljD4MvsAhpIYnlM2H5lRcCKkCSA5Gw_n9QkqlrF0BFDIrn-KMJvRKEBUKMk-DprNWISF7YthsvsdJRebQEgBW_HJAx_ZIAmhzRAFnVFqsGmDjSpWLVzlD4SalmSpcoIodor" data-type="subscription">
+          <form id="sib-form" target="hidden_iframe" method="POST" 
+                action="https://49df9fbb.sibforms.com/serve/MUIFAH6Y3rpHIggwiMDuMqGcGEHlefWy3BBgCTnHzKMUaXjBfKwHe4IUyxv2WrqAg8QSE56ER5iQuljD4MvsAhpIYnlM2H5lRcCKkCSA5Gw_n9QkqlrF0BFDIrn-KMJvRKEBUKMk-DprNWISF7YthsvsdJRebQEgBW_HJAx_ZIAmhzRAFnVFqsGmDjSpWLVzlD4SalmSpcoIodor" 
+                data-type="subscription">
             <div style="padding: 8px 0;">
               <div class="sib-input sib-form-block">
                 <div class="form__entry entry_block">
@@ -275,7 +266,7 @@
       </div>
     </div>
 
-    <!-- Creative Tech Modern Premium Countdown Timer -->
+    <!-- Premium Countdown Timer -->
     <div class="premium-timer">
       <div class="premium-timer-label">Offer Expires In</div>
       <div class="premium-timer-display">
@@ -285,13 +276,13 @@
   </div>
 
   <script>
-    // Use a flag to track if the form was submitted
+    // Flag to track form submission
     var formSubmitted = false;
     document.getElementById('sib-form').addEventListener('submit', function() {
       formSubmitted = true;
     });
     
-    // Listen for the hidden iframe's load event to determine when the submission is complete
+    // When the hidden iframe loads (submission response received), show the success message
     document.getElementById('hidden_iframe').addEventListener('load', function() {
       if (formSubmitted) {
         document.getElementById('sib-form-container').style.display = 'none';
