@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🔥 Get Your Free Ultimate Weight Loss eBook! 🔥</title>
-  <link rel="stylesheet" href="styles.css" />
   <!-- FontAwesome for icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
@@ -18,13 +17,12 @@
       margin: 0;
       padding: 20px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       position: relative;
-      /* Remove vertical centering on mobile so users can scroll */
-      align-items: center;
-      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     /* Creative background shapes */
@@ -58,8 +56,8 @@
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
       border: 1px solid #ececec;
       position: relative;
+      margin: 20px auto;
       overflow: hidden;
-      transition: transform 0.3s ease;
     }
     /* Gradient overlay for extra flair */
     .container::before {
@@ -142,29 +140,8 @@
       text-shadow: 0 0 10px rgba(0, 213, 255, 0.8);
     }
 
-    /* Override inline styles for Brevo form elements */
-    #error-message,
-    #error-message .sib-form-message-panel__text,
-    #error-message .sib-form-message-panel__inner-text,
-    #success-message,
-    #success-message .sib-form-message-panel__text,
-    #success-message .sib-form-message-panel__inner-text,
-    #sib-container,
-    #sib-container * {
-      text-align: center !important;
-    }
-
-    /* Mobile adjustments: Zoom out and allow scrolling from the top */
+    /* Mobile adjustments */
     @media (max-width: 600px) {
-      body {
-        align-items: flex-start;
-        padding-top: 20px;
-        padding-bottom: 20px;
-      }
-      .container {
-        transform: scale(0.9);
-        transform-origin: top center;
-      }
       h1 {
         font-size: 28px;
       }
@@ -201,16 +178,8 @@
       src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
            url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
     }
-    #sib-container input:-ms-input-placeholder {
-      text-align: center !important;
-      font-family: Helvetica, sans-serif;
-      color: #c0ccda;
-    }
-    #sib-container input::placeholder {
-      text-align: center !important;
-      font-family: Helvetica, sans-serif;
-      color: #c0ccda;
-    }
+    #sib-container input:-ms-input-placeholder,
+    #sib-container input::placeholder,
     #sib-container textarea::placeholder {
       text-align: center !important;
       font-family: Helvetica, sans-serif;
