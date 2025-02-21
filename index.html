@@ -78,17 +78,54 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
+    /* Styled timer elements */
     .timer,
+    .countdown-timer,
     .stock {
       font-size: 22px;
       font-weight: bold;
-      margin-top: 15px;
-      color: #e74c3c;
-      background: #f8f9fa;
-      padding: 12px;
+      margin: 15px auto;
+      padding: 12px 20px;
       border-radius: 10px;
       display: inline-block;
       border: 1px solid #ddd;
+      background: #f8f9fa;
+      color: #e74c3c;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .timer i,
+    .countdown-timer i,
+    .stock i {
+      margin-right: 8px;
+    }
+
+    /* Additional style for the countdown timer */
+    .countdown-timer {
+      background: #fff4e6;
+      border-color: #ffc107;
+      color: #d35400;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+      .timer,
+      .countdown-timer,
+      .stock {
+        font-size: 18px;
+        padding: 10px 15px;
+      }
+      p {
+        font-size: 16px;
+      }
+      .ebook-image {
+        max-width: 60%;
+      }
     }
 
     /* Override inline styles of Brevo form for centering */
@@ -102,26 +139,6 @@
     #sib-container * {
       text-align: center !important;
     }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 24px;
-        margin: 10px 0;
-      }
-
-      .timer,
-      .stock {
-        font-size: 18px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      .ebook-image {
-        max-width: 60%;
-      }
-    }
   </style>
   <!-- Begin Brevo Form styles -->
   <style>
@@ -129,43 +146,37 @@
       font-display: block;
       font-family: Roboto;
       src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"),
-        url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
+           url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
     }
-
     @font-face {
       font-display: fallback;
       font-family: Roboto;
       font-weight: 600;
       src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),
-        url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
+           url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
     }
-
     @font-face {
       font-display: fallback;
       font-family: Roboto;
       font-weight: 700;
       src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
-        url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
+           url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
     }
-
     #sib-container input:-ms-input-placeholder {
       text-align: center !important;
       font-family: Helvetica, sans-serif;
       color: #c0ccda;
     }
-
     #sib-container input::placeholder {
       text-align: center !important;
       font-family: Helvetica, sans-serif;
       color: #c0ccda;
     }
-
     #sib-container textarea::placeholder {
       text-align: center !important;
       font-family: Helvetica, sans-serif;
       color: #c0ccda;
     }
-
     #sib-container a {
       text-decoration: underline;
       color: #2BB2FC;
@@ -245,24 +256,45 @@
         </div>
       </div>
     </div>
-    <div class="timer">Limited Time Offer: Only <span id="stock-left">100</span> copies left!</div>
-    <div class="stock">Hurry up before they're gone!</div>
+    <!-- Optimized Timer and Stock Elements -->
+    <div class="countdown-timer">
+      <i class="fas fa-clock"></i>
+      <span id="countdown">15:00</span> left
+    </div>
+    <div class="timer">
+      <i class="fas fa-box-open"></i>
+      Limited Time Offer: Only <span id="stock-left">100</span> copies left!
+    </div>
+    <div class="stock">
+      <i class="fas fa-exclamation-triangle"></i>
+      Hurry up before they're gone!
+    </div>
   </div>
 
   <script>
-    // Timer for stock left
+    // Stock decrement timer (for visual effect)
     let stockCount = 100;
     const stockLeftElement = document.getElementById('stock-left');
-
     const updateStock = () => {
       if (stockCount > 0) {
         stockCount--;
         stockLeftElement.textContent = stockCount;
       }
     };
-
-    // Update stock every 5 seconds
     setInterval(updateStock, 5000);
+
+    // 15-minute countdown timer (900 seconds)
+    let timeLeft = 15 * 60; 
+    const countdownElement = document.getElementById('countdown');
+    const updateCountdown = () => {
+      if (timeLeft > 0) {
+        timeLeft--;
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        countdownElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      }
+    };
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
