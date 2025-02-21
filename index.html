@@ -1,267 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 Get Your Free Ultimate Weight Loss eBook! 🔥</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ffffff, #f5f5f5);
-            color: #333;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-            transform: scale(0.8); /* Zoom out */
-            transform-origin: top; /* Set the origin to top */
-            transition: transform 0.5s ease; /* Smooth transition */
-        }
-        
-        .zoomed-in {
-            transform: scale(1); /* Zoom in */
-        }
-        
-        .background-deco {
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 300px;
-            height: 300px;
-            background: rgba(52, 152, 219, 0.2);
-            border-radius: 50%;
-            z-index: -1;
-        }
-        .background-deco-2 {
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 250px;
-            height: 250px;
-            background: rgba(231, 76, 60, 0.2);
-            border-radius: 50%;
-            z-index: -1;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 Get Your Free Ultimate Weight Loss eBook! 🔥</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap');
+    
+    /* Adjust body to allow scrolling if needed */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffffff, #f5f5f5);
+      color: #333;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Allow page to expand if content is larger */
+      margin: 0;
+      position: relative;
+      /* Removed overflow: hidden to enable scrolling */
+    }
+    
+    .background-deco {
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 300px;
+      height: 300px;
+      background: rgba(52, 152, 219, 0.2);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .background-deco-2 {
+      position: absolute;
+      bottom: -50px;
+      right: -50px;
+      width: 250px;
+      height: 250px;
+      background: rgba(231, 76, 60, 0.2);
+      border-radius: 50%;
+      z-index: -1;
+    }
 
-        .container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            border: 2px solid #ddd;
-            z-index: 1;
-        }
+    .container {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      border: 2px solid #ddd;
+      z-index: 1;
+    }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 34px;
-            font-weight: 700;
-            color: #222;
-            margin: 20px 0; /* Ensure margin for spacing */
-        }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #222;
+      margin: 20px 0;
+    }
 
-        p {
-            font-size: 18px;
-            font-weight: 300;
-            color: #555;
-        }
+    p {
+      font-size: 18px;
+      font-weight: 300;
+      color: #555;
+    }
 
-        .ebook-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
+    /* Make the eBook image smaller */
+    .ebook-image {
+      max-width: 70%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
 
-        .timer, .stock {
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 15px;
-            color: #e74c3c;
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 10px;
-            display: inline-block;
-            border: 1px solid #ddd;
-        }
+    .timer, .stock {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #e74c3c;
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 10px;
+      display: inline-block;
+      border: 1px solid #ddd;
+    }
 
-        iframe {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 100%;
-            border: none;
-        }
+    /* Responsive adjustments for mobile */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+        margin: 10px 0;
+      }
 
-        /* Media query for responsive title */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 24px; /* Adjust the size for mobile */
-                margin: 10px 0; /* Adjust margin for mobile */
-            }
+      .timer, .stock {
+        font-size: 18px;
+      }
 
-            .timer, .stock {
-                font-size: 18px; /* Adjust font size for mobile */
-            }
+      p {
+        font-size: 16px;
+      }
 
-            p {
-                font-size: 16px; /* Adjust paragraph size for mobile */
-            }
-        }
-    </style>
-    <!-- Begin Brevo Form -->
-    <style>
-        @font-face {
-            font-display: block;
-            font-family: Roboto;
-            src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
-        }
+      .ebook-image {
+        max-width: 60%;
+      }
+    }
+  </style>
+  <!-- Begin Brevo Form styles -->
+  <style>
+    @font-face {
+      font-display: block;
+      font-family: Roboto;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+    }
 
-        @font-face {
-            font-display: fallback;
-            font-family: Roboto;
-            font-weight: 600;
-            src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
-        }
+    @font-face {
+      font-display: fallback;
+      font-family: Roboto;
+      font-weight: 600;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+    }
 
-        @font-face {
-            font-display: fallback;
-            font-family: Roboto;
-            font-weight: 700;
-            src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
-        }
+    @font-face {
+      font-display: fallback;
+      font-family: Roboto;
+      font-weight: 700;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+    }
 
-        #sib-container input:-ms-input-placeholder {
-            text-align: left;
-            font-family: Helvetica, sans-serif;
-            color: #c0ccda;
-        }
+    #sib-container input:-ms-input-placeholder {
+      text-align: left;
+      font-family: Helvetica, sans-serif;
+      color: #c0ccda;
+    }
 
-        #sib-container input::placeholder {
-            text-align: left;
-            font-family: Helvetica, sans-serif;
-            color: #c0ccda;
-        }
+    #sib-container input::placeholder {
+      text-align: left;
+      font-family: Helvetica, sans-serif;
+      color: #c0ccda;
+    }
 
-        #sib-container textarea::placeholder {
-            text-align: left;
-            font-family: Helvetica, sans-serif;
-            color: #c0ccda;
-        }
+    #sib-container textarea::placeholder {
+      text-align: left;
+      font-family: Helvetica, sans-serif;
+      color: #c0ccda;
+    }
 
-        #sib-container a {
-            text-decoration: underline;
-            color: #2BB2FC;
-        }
-    </style>
-    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-    <!-- End Brevo Form -->
+    #sib-container a {
+      text-decoration: underline;
+      color: #2BB2FC;
+    }
+  </style>
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  <!-- End Brevo Form styles -->
 </head>
 <body>
-    <div class="background-deco"></div>
-    <div class="background-deco-2"></div>
-    <div class="container">
-        <h1>🎁 Get Your Free Ultimate Weight Loss eBook! 🎁</h1>
-        <img src="free ebook.png" alt="Free eBook" class="ebook-image"> <!-- Updated image path -->
-        <p>Unlock the secrets to burning fat and achieving your dream body!</p>
-        
-        <div class="sib-form" style="text-align: center; background-color: #EFF2F7;">
-            <div id="sib-form-container" class="sib-form-container">
-                <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
-                    <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                        <span class="sib-form-message-panel__inner-text">
-                          Something went wrong, and we couldn’t save your subscription. Please refresh the page and try again.
-                        </span>
-                    </div>
-                </div>
-                <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;">
-                    <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                        <span class="sib-form-message-panel__inner-text">
-                          🎉 Congratulations! You&#039;re Almost There! 🎉 "Please check your email inbox (and spam folder) for a confirmation link. Click the link to get your free Ultimate Weight Loss eBook!" 📩 If you don’t receive the email in a few minutes, try again or contact us.
-                        </span>
-                    </div>
-                </div>
-                <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr">
-                    <form id="sib-form" method="POST" action="https://49df9fbb.sibforms.com/serve/MUIFAH6Y3rpHIggwiMDuMqGcGEHlefWy3BBgCTnHzKMUaXjBfKwHe4IUyxv2WrqAg8QSE56ER5iQuljD4MvsAhpIYnlM2H5lRcCKkCSA5Gw_n9QkqlrF0BFDIrn-KMJvRKEBUKMk-DprNWISF7YthsvsdJRebQEgBW_HJAx_ZIAmhzRAFnVFqsGmDjSpWLVzlD4SalmSpcoIodor" data-type="subscription">
-                        <div style="padding: 8px 0;">
-                            <div class="sib-input sib-form-block">
-                                <div class="form__entry entry_block">
-                                    <div class="form__label-row ">
-                                        <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to get free gift</label>
-                                        <div class="entry__field">
-                                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
-                                        </div>
-                                    </div>
-                                    <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                                    </label>
-                                    <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
-                                        Provide your email address to subscribe. For e.g abc@xyz.com
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="padding: 8px 0;">
-                            <div class="sib-optin sib-form-block">
-                                <div class="form__entry entry_mcq">
-                                    <div class="form__label-row ">
-                                        <div class="entry__choice" style="">
-                                            <label>
-                                                <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" />
-                                                <span class="checkbox checkbox_tick_positive"></span><span style="font-size:14px; text-align:left; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent;"><p>I agree to receive your newsletters and accept the data privacy statement.</p></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="padding: 8px 0;">
-                            <div class="sib-button sib-button--primary">
-                                <button type="submit" class="button" style="font-weight:700; font-family:Helvetica, sans-serif; color:white; background-color:#2BB2FC; border:none; border-radius:5px; padding:10px 20px; cursor:pointer;">
-                                    Get Your Free eBook Now!
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+  <div class="background-deco"></div>
+  <div class="background-deco-2"></div>
+  <div class="container">
+    <h1>🎁 Get Your Free Ultimate Weight Loss eBook! 🎁</h1>
+    <img src="free ebook.png" alt="Free eBook" class="ebook-image">
+    <p>Unlock the secrets to burning fat and achieving your dream body!</p>
+    
+    <div class="sib-form" style="text-align: center; background-color: #EFF2F7;">
+      <div id="sib-form-container" class="sib-form-container">
+        <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949; max-width:540px;">
+          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+            <span class="sib-form-message-panel__inner-text">
+              Something went wrong, and we couldn’t save your subscription. Please refresh the page and try again.
+            </span>
+          </div>
         </div>
-        <div class="timer">Limited Time Offer: Only <span id="stock-left">100</span> copies left!</div>
-        <div class="stock">Hurry up before they're gone!</div>
+        <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66; max-width:540px;">
+          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+            <span class="sib-form-message-panel__inner-text">
+              🎉 Congratulations! You’re Almost There! 🎉 "Please check your email inbox (and spam folder) for a confirmation link. Click the link to get your free Ultimate Weight Loss eBook!" 📩 If you don’t receive the email in a few minutes, try again or contact us.
+            </span>
+          </div>
+        </div>
+        <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr">
+          <form id="sib-form" method="POST" action="https://49df9fbb.sibforms.com/serve/MUIFAH6Y3rpHIggwiMDuMqGcGEHlefWy3BBgCTnHzKMUaXjBfKwHe4IUyxv2WrqAg8QSE56ER5iQuljD4MvsAhpIYnlM2H5lRcCKkCSA5Gw_n9QkqlrF0BFDIrn-KMJvRKEBUKMk-DprNWISF7YthsvsdJRebQEgBW_HJAx_ZIAmhzRAFnVFqsGmDjSpWLVzlD4SalmSpcoIodor" data-type="subscription">
+            <div style="padding: 8px 0;">
+              <div class="sib-input sib-form-block">
+                <div class="form__entry entry_block">
+                  <div class="form__label-row">
+                    <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to get free gift</label>
+                    <div class="entry__field">
+                      <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
+                    </div>
+                  </div>
+                  <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                  <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4;">
+                    Provide your email address to subscribe. For e.g abc@xyz.com
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 8px 0;">
+              <div class="sib-optin sib-form-block">
+                <div class="form__entry entry_mcq">
+                  <div class="form__label-row">
+                    <div class="entry__choice">
+                      <label>
+                        <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" />
+                        <span class="checkbox checkbox_tick_positive"></span>
+                        <span style="font-size:14px; text-align:left; font-family:Helvetica, sans-serif; color:#3C4858;">
+                          <p>I agree to receive your newsletters and accept the data privacy statement.</p>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 8px 0;">
+              <div class="sib-button sib-button--primary">
+                <button type="submit" class="button" style="font-weight:700; font-family:Helvetica, sans-serif; color:white; background-color:#2BB2FC; border:none; border-radius:5px; padding:10px 20px; cursor:pointer;">
+                  Get Your Free eBook Now!
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+    <div class="timer">Limited Time Offer: Only <span id="stock-left">100</span> copies left!</div>
+    <div class="stock">Hurry up before they're gone!</div>
+  </div>
 
-    <script>
-        // Zoom in effect after a short delay
-        setTimeout(() => {
-            document.body.classList.add('zoomed-in');
-        }, 500); // Adjust the timing as needed
+  <script>
+    // Timer for stock left
+    let stockCount = 100;
+    const stockLeftElement = document.getElementById('stock-left');
 
-        // Timer for stock left
-        let stockCount = 100;
-        const stockLeftElement = document.getElementById('stock-left');
+    const updateStock = () => {
+      if (stockCount > 0) {
+        stockCount--;
+        stockLeftElement.textContent = stockCount;
+      }
+    };
 
-        const updateStock = () => {
-            if (stockCount > 0) {
-                stockCount--;
-                stockLeftElement.textContent = stockCount;
-            }
-        };
-
-        // Update stock every 5 seconds
-        setInterval(updateStock, 5000);
-    </script>
+    // Update stock every 5 seconds
+    setInterval(updateStock, 5000);
+  </script>
 </body>
 </html>
+
