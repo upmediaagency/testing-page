@@ -21,6 +21,13 @@
             margin: 0;
             position: relative;
             overflow: hidden;
+            transform: scale(0.8); /* Zoom out */
+            transform-origin: top; /* Set the origin to top */
+            transition: transform 0.5s ease; /* Smooth transition */
+        }
+        
+        .zoomed-in {
+            transform: scale(1); /* Zoom in */
         }
         
         .background-deco {
@@ -115,7 +122,6 @@
             }
         }
     </style>
-
     <!-- Begin Brevo Form -->
     <style>
         @font-face {
@@ -238,6 +244,11 @@
     </div>
 
     <script>
+        // Zoom in effect after a short delay
+        setTimeout(() => {
+            document.body.classList.add('zoomed-in');
+        }, 500); // Adjust the timing as needed
+
         // Timer for stock left
         let stockCount = 100;
         const stockLeftElement = document.getElementById('stock-left');
