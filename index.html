@@ -11,20 +11,23 @@
     /* Import Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&family=Orbitron:wght@500&display=swap');
 
+    /* Base body styles */
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #fdfbfb, #ebedee);
       margin: 0;
       padding: 20px;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
       position: relative;
-      overflow: hidden;
+      /* Remove vertical centering on mobile so users can scroll */
+      align-items: center;
+      overflow-x: hidden;
     }
 
-    /* Creative Background Shapes */
+    /* Creative background shapes */
     .background-deco, .background-deco-2 {
       position: absolute;
       z-index: -1;
@@ -56,6 +59,7 @@
       border: 1px solid #ececec;
       position: relative;
       overflow: hidden;
+      transition: transform 0.3s ease;
     }
     /* Gradient overlay for extra flair */
     .container::before {
@@ -92,7 +96,7 @@
       margin-bottom: 30px;
     }
 
-    /* Creative Subscription Form */
+    /* Subscription form styling */
     .sib-form {
       background: #f7f7f7;
       padding: 20px;
@@ -101,7 +105,7 @@
       border: 1px solid #ececec;
     }
 
-    /* Tech Modern Premium Countdown Timer */
+    /* Creative Tech Modern Premium Countdown Timer */
     .premium-timer {
       background: #1a1a1a;
       border-radius: 12px;
@@ -138,7 +142,29 @@
       text-shadow: 0 0 10px rgba(0, 213, 255, 0.8);
     }
 
+    /* Override inline styles for Brevo form elements */
+    #error-message,
+    #error-message .sib-form-message-panel__text,
+    #error-message .sib-form-message-panel__inner-text,
+    #success-message,
+    #success-message .sib-form-message-panel__text,
+    #success-message .sib-form-message-panel__inner-text,
+    #sib-container,
+    #sib-container * {
+      text-align: center !important;
+    }
+
+    /* Mobile adjustments: Zoom out and allow scrolling from the top */
     @media (max-width: 600px) {
+      body {
+        align-items: flex-start;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      .container {
+        transform: scale(0.9);
+        transform-origin: top center;
+      }
       h1 {
         font-size: 28px;
       }
@@ -151,18 +177,6 @@
       .premium-timer-display {
         font-size: 36px;
       }
-    }
-
-    /* Override inline styles for Brevo form */
-    #error-message,
-    #error-message .sib-form-message-panel__text,
-    #error-message .sib-form-message-panel__inner-text,
-    #success-message,
-    #success-message .sib-form-message-panel__text,
-    #success-message .sib-form-message-panel__inner-text,
-    #sib-container,
-    #sib-container * {
-      text-align: center !important;
     }
   </style>
   <!-- Brevo Form Styles -->
