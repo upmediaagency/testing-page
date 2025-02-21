@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🔥 Get Your Free Ultimate Weight Loss eBook! 🔥</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap');
-    
-    /* Adjust body to allow scrolling if needed */
+
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #ffffff, #f5f5f5);
@@ -18,12 +17,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh; /* Allow page to expand if content is larger */
+      min-height: 100vh;
       margin: 0;
       position: relative;
-      /* Removed overflow: hidden to enable scrolling */
     }
-    
+
     .background-deco {
       position: absolute;
       top: -50px;
@@ -72,7 +70,6 @@
       color: #555;
     }
 
-    /* Make the eBook image smaller */
     .ebook-image {
       max-width: 70%;
       height: auto;
@@ -81,7 +78,8 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
-    .timer, .stock {
+    .timer,
+    .stock {
       font-size: 22px;
       font-weight: bold;
       margin-top: 15px;
@@ -93,14 +91,26 @@
       border: 1px solid #ddd;
     }
 
-    /* Responsive adjustments for mobile */
+    /* Override inline styles of Brevo form for centering */
+    #error-message,
+    #error-message .sib-form-message-panel__text,
+    #error-message .sib-form-message-panel__inner-text,
+    #success-message,
+    #success-message .sib-form-message-panel__text,
+    #success-message .sib-form-message-panel__inner-text,
+    #sib-container,
+    #sib-container * {
+      text-align: center !important;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 24px;
         margin: 10px 0;
       }
 
-      .timer, .stock {
+      .timer,
+      .stock {
         font-size: 18px;
       }
 
@@ -119,7 +129,7 @@
       font-display: block;
       font-family: Roboto;
       src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"),
-           url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+        url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
     }
 
     @font-face {
@@ -127,7 +137,7 @@
       font-family: Roboto;
       font-weight: 600;
       src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),
-           url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+        url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
     }
 
     @font-face {
@@ -135,23 +145,23 @@
       font-family: Roboto;
       font-weight: 700;
       src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
-           url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+        url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
     }
 
     #sib-container input:-ms-input-placeholder {
-      text-align: left;
+      text-align: center !important;
       font-family: Helvetica, sans-serif;
       color: #c0ccda;
     }
 
     #sib-container input::placeholder {
-      text-align: left;
+      text-align: center !important;
       font-family: Helvetica, sans-serif;
       color: #c0ccda;
     }
 
     #sib-container textarea::placeholder {
-      text-align: left;
+      text-align: center !important;
       font-family: Helvetica, sans-serif;
       color: #c0ccda;
     }
@@ -161,7 +171,7 @@
       color: #2BB2FC;
     }
   </style>
-  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
   <!-- End Brevo Form styles -->
 </head>
 <body>
@@ -169,38 +179,38 @@
   <div class="background-deco-2"></div>
   <div class="container">
     <h1>🎁 Get Your Free Ultimate Weight Loss eBook! 🎁</h1>
-    <img src="free ebook.png" alt="Free eBook" class="ebook-image">
+    <img src="free ebook.png" alt="Free eBook" class="ebook-image" />
     <p>Unlock the secrets to burning fat and achieving your dream body!</p>
-    
-    <div class="sib-form" style="text-align: center; background-color: #EFF2F7;">
+
+    <div class="sib-form" style="background-color: #EFF2F7;">
       <div id="sib-form-container" class="sib-form-container">
-        <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949; max-width:540px;">
+        <div id="error-message" class="sib-form-message-panel" style="font-size:16px; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949; max-width:540px;">
           <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
             <span class="sib-form-message-panel__inner-text">
               Something went wrong, and we couldn’t save your subscription. Please refresh the page and try again.
             </span>
           </div>
         </div>
-        <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66; max-width:540px;">
+        <div id="success-message" class="sib-form-message-panel" style="font-size:16px; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66; max-width:540px;">
           <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
             <span class="sib-form-message-panel__inner-text">
               🎉 Congratulations! You’re Almost There! 🎉 "Please check your email inbox (and spam folder) for a confirmation link. Click the link to get your free Ultimate Weight Loss eBook!" 📩 If you don’t receive the email in a few minutes, try again or contact us.
             </span>
           </div>
         </div>
-        <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr">
+        <div id="sib-container" class="sib-container--large sib-container--vertical" style="background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr;">
           <form id="sib-form" method="POST" action="https://49df9fbb.sibforms.com/serve/MUIFAH6Y3rpHIggwiMDuMqGcGEHlefWy3BBgCTnHzKMUaXjBfKwHe4IUyxv2WrqAg8QSE56ER5iQuljD4MvsAhpIYnlM2H5lRcCKkCSA5Gw_n9QkqlrF0BFDIrn-KMJvRKEBUKMk-DprNWISF7YthsvsdJRebQEgBW_HJAx_ZIAmhzRAFnVFqsGmDjSpWLVzlD4SalmSpcoIodor" data-type="subscription">
             <div style="padding: 8px 0;">
               <div class="sib-input sib-form-block">
                 <div class="form__entry entry_block">
                   <div class="form__label-row">
-                    <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to get free gift</label>
+                    <label class="entry__label" style="font-weight: 700; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to get free gift</label>
                     <div class="entry__field">
                       <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
                     </div>
                   </div>
-                  <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
-                  <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4;">
+                  <label class="entry__error entry__error--primary" style="font-size:16px; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                  <label class="entry__specification" style="font-size:12px; font-family:Helvetica, sans-serif; color:#8390A4;">
                     Provide your email address to subscribe. For e.g abc@xyz.com
                   </label>
                 </div>
@@ -214,13 +224,13 @@
                       <label>
                         <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" />
                         <span class="checkbox checkbox_tick_positive"></span>
-                        <span style="font-size:14px; text-align:left; font-family:Helvetica, sans-serif; color:#3C4858;">
+                        <span style="font-size:14px; font-family:Helvetica, sans-serif; color:#3C4858;">
                           <p>I agree to receive your newsletters and accept the data privacy statement.</p>
                         </span>
                       </label>
                     </div>
                   </div>
-                  <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                  <label class="entry__error entry__error--primary" style="font-size:16px; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
                 </div>
               </div>
             </div>
@@ -256,4 +266,3 @@
   </script>
 </body>
 </html>
-
