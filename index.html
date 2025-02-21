@@ -103,6 +103,12 @@
       border: 1px solid #ececec;
     }
 
+    /* Hide error and success messages by default */
+    #error-message,
+    #success-message {
+      display: none;
+    }
+
     /* Creative Tech Modern Premium Countdown Timer */
     .premium-timer {
       background: #1a1a1a;
@@ -205,14 +211,14 @@
         <div id="error-message" class="sib-form-message-panel" style="font-size:16px; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949; max-width:540px;">
           <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
             <span class="sib-form-message-panel__inner-text">
-              Something went wrong, and we couldn’t save your subscription. Please refresh the page and try again.
+              Something went wrong. Please try again.
             </span>
           </div>
         </div>
         <div id="success-message" class="sib-form-message-panel" style="font-size:16px; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66; max-width:540px;">
           <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
             <span class="sib-form-message-panel__inner-text">
-              🎉 Congratulations! You’re Almost There! Please check your email (and spam folder) for the confirmation link.
+              🎉 Congratulations! You're almost there! Please check your email (and spam folder) for the confirmation link.
             </span>
           </div>
         </div>
@@ -276,6 +282,29 @@
   </div>
 
   <script>
+    // AJAX form submission to prevent full page reload
+    document.getElementById('sib-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Stop the default form submission
+      var form = this;
+      var formData = new FormData(form);
+      
+      // Use fetch with no-cors (you won't be able to read the response, but that's okay)
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(function() {
+        // Hide the form container and show the success message
+        document.getElementById('sib-form-container').style.display = 'none';
+        document.getElementById('success-message').style.display = 'block';
+      })
+      .catch(function(error) {
+        // On error, show the error message
+        document.getElementById('error-message').style.display = 'block';
+      });
+    });
+
     // Real 15-minute countdown timer (900 seconds)
     let premiumTimeLeft = 15 * 60;
     const premiumCountdownElement = document.getElementById('premium-countdown');
