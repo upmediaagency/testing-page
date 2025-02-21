@@ -10,7 +10,6 @@
     /* Import Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&family=Orbitron:wght@500&display=swap');
 
-    /* Base body styles */
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #fdfbfb, #ebedee);
@@ -199,6 +198,9 @@
   <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
 </head>
 <body>
+  <!-- Hidden iframe for form submission -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"></iframe>
+  
   <div class="background-deco"></div>
   <div class="background-deco-2"></div>
   <div class="container">
@@ -222,8 +224,9 @@
             </span>
           </div>
         </div>
+        <!-- Note: The form now has target="hidden_iframe" -->
         <div id="sib-container" class="sib-container--large sib-container--vertical" style="background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr;">
-          <form id="sib-form" method="POST" action="https://49df9fbb.sibforms.com/serve/MUIFAH6Y3rpHIggwiMDuMqGcGEHlefWy3BBgCTnHzKMUaXjBfKwHe4IUyxv2WrqAg8QSE56ER5iQuljD4MvsAhpIYnlM2H5lRcCKkCSA5Gw_n9QkqlrF0BFDIrn-KMJvRKEBUKMk-DprNWISF7YthsvsdJRebQEgBW_HJAx_ZIAmhzRAFnVFqsGmDjSpWLVzlD4SalmSpcoIodor" data-type="subscription">
+          <form id="sib-form" target="hidden_iframe" method="POST" action="https://49df9fbb.sibforms.com/serve/MUIFAH6Y3rpHIggwiMDuMqGcGEHlefWy3BBgCTnHzKMUaXjBfKwHe4IUyxv2WrqAg8QSE56ER5iQuljD4MvsAhpIYnlM2H5lRcCKkCSA5Gw_n9QkqlrF0BFDIrn-KMJvRKEBUKMk-DprNWISF7YthsvsdJRebQEgBW_HJAx_ZIAmhzRAFnVFqsGmDjSpWLVzlD4SalmSpcoIodor" data-type="subscription">
             <div style="padding: 8px 0;">
               <div class="sib-input sib-form-block">
                 <div class="form__entry entry_block">
@@ -282,29 +285,21 @@
   </div>
 
   <script>
-    // AJAX form submission to prevent full page reload
-    document.getElementById('sib-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // Stop the default form submission
-      var form = this;
-      var formData = new FormData(form);
-      
-      // Use fetch with no-cors (you won't be able to read the response, but that's okay)
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-      })
-      .then(function() {
-        // Hide the form container and show the success message
+    // Use a flag to track if the form was submitted
+    var formSubmitted = false;
+    document.getElementById('sib-form').addEventListener('submit', function() {
+      formSubmitted = true;
+    });
+    
+    // Listen for the hidden iframe's load event to determine when the submission is complete
+    document.getElementById('hidden_iframe').addEventListener('load', function() {
+      if (formSubmitted) {
         document.getElementById('sib-form-container').style.display = 'none';
         document.getElementById('success-message').style.display = 'block';
-      })
-      .catch(function(error) {
-        // On error, show the error message
-        document.getElementById('error-message').style.display = 'block';
-      });
+        formSubmitted = false;
+      }
     });
-
+    
     // Real 15-minute countdown timer (900 seconds)
     let premiumTimeLeft = 15 * 60;
     const premiumCountdownElement = document.getElementById('premium-countdown');
