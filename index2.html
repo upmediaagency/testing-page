@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PresentaMark - Interactive Feedback</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: auto; }
+        .comment-box { margin-top: 10px; }
+        .feedback { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+        .segment { background: #f4f4f4; padding: 5px; margin: 5px 0; cursor: pointer; }
+        .segment:hover { background: #ddd; }
+        .comment-section { margin-top: 10px; padding: 10px; border: 1px solid #ccc; background: #f9f9f9; }
+        .hidden { display: none; }
+        .comment-input { width: 100%; padding: 5px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>PresentaMark - Interactive Feedback</h2>
+        
+        <div id="loginSection">
+            <h3>Teacher Login</h3>
+            <input type="password" id="teacherPassword" placeholder="Enter Password">
+            <button onclick="verifyTeacher()">Login</button>
+        </div>
+        
+        <div id="contentSection" class="hidden">
+            <video id="presentationVideo" width="100%" controls>
+                <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <div id="teacherTools" class="hidden">
+                <div class="comment-box">
+                    <button onclick="startMarking()">Start Marking Segment</button>
+                    <button onclick="endMarking()">End Marking Segment</button>
+                    <ul id="segmentsList"></ul>
+                </div>
+            </div>
+
+            <div class="feedback">
+                <h3>Feedback Report</h3>
+                <ul id="feedbackReport"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let segments = [];
+        let markingSegment = false;
+        let segmentStart = 0;
+        let isTeacher = false;
+
+        function verifyTeacher() {
+            let password = document.getElementById("teacherPassword").value;
+            if (password === "securepass") { // Change "securepass" to your desired password
+                isTeacher = true;
+                document.getElementById("loginSection").classList.add("hidden");
+                document.getElementById("contentSection").classList.remove("hidden");
+                document.getElementById("teacherTools").classList.remove("hidden");
+            } else {
+                alert("Incorrect password. Access denied.");
+            }
+        }
+
+        function startMarking() {
+            if (!isTeacher) return alert("Only teachers can mark segments.");
+            let video = document.getElementById("presentationVideo");
+            segmentStart = video.currentTime.toFixed(2);
+            markingSegment = true;
+            alert("Segment marking started at " + segmentStart + " seconds.");
+        }
+
+        function endMarking() {
+            if (!isTeacher) return alert("Only teachers can mark segments.");
+            if (!markingSegment) {
+                alert("You need to start marking a segment first.");
+                return;
+            }
+            let video = document.getElementById("presentationVideo");
+            let segmentEnd = video.currentTime.toFixed(2);
+            let segment = { startTime: segmentStart, endTime: segmentEnd, comments: [] };
+            segments.push(segment);
+            updateSegments();
+            markingSegment = false;
+        }
+
+        function updateSegments() {
+            let report = document.getElementById("feedbackReport");
+            report.innerHTML = "";
+            
+            segments.forEach((segment, index) => {
+                let reportItem = document.createElement("li");
+                reportItem.innerHTML = `<strong>From ${segment.startTime}s to ${segment.endTime}s:</strong>`;
+                
+                let commentSection = document.createElement("div");
+                commentSection.className = "comment-section";
+                commentSection.id = `comment-section-${index}`;
+                
+                segment.comments.forEach(comment => {
+                    let p = document.createElement("p");
+                    p.textContent = comment;
+                    commentSection.appendChild(p);
+                });
+                
+                if (isTeacher) {
+                    let commentInput = document.createElement("input");
+                    commentInput.type = "text";
+                    commentInput.className = "comment-input";
+                    commentInput.placeholder = "Type your comment...";
+                    commentInput.onkeypress = function(event) {
+                        if (event.key === 'Enter') {
+                            addComment(index, commentInput.value);
+                            commentInput.value = "";
+                        }
+                    };
+                    commentSection.appendChild(commentInput);
+                }
+
+                reportItem.appendChild(commentSection);
+                report.appendChild(reportItem);
+            });
+        }
+
+        function addComment(index, text) {
+            if (!isTeacher) return alert("Only teachers can add comments.");
+            if (text.trim()) {
+                segments[index].comments.push(text);
+                updateSegments();
+            }
+        }
+    </script>
+</body>
+</html>
